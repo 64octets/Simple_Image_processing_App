@@ -52,7 +52,7 @@ This screen shot demonstrates one use of an operator on the earlier image.
 
 ## Contribution
 
-The code was written by me. Please email (rd31879@uga.edu) if you need any assistance. Please not this code is not optimized but just a toy project. 
+The code was written by me. Please email (rd31879@uga.edu) if you need any assistance. Please note this code is not optimized but just a toy project. 
 
 ## Resources which helped me during the learning process - 
 #### https://www.youtube.com/watch?v=zyxi_1OyZ2I - Basic GUIDE usage
