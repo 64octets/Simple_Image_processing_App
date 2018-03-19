@@ -420,20 +420,20 @@ global I
 axes(handles.display)
 %imshow(I)
 grayImage = I;
-Id = im2double(grayImage);
-Imax = max(Id(:));
-Imin = min(Id(:));
-T = 0.5*(min(Id(:)) + max(Id(:)));
-deltaT = 0.01;
+reform = im2double(grayImage);
+Imax = max(reform(:));
+Imin = min(reform(:));
+T = 0.5*(min(reform(:)) + max(reform(:)));
+stop_criterion = 0.01;
 done = false;
 counter = 1;
 while ~done
 	savedThresholds(counter) = T;
 	
-	g = Id >= T;
-    imshow(g(:, :, 1))
-	Tnext = 0.5*(mean(Id(g)) + mean(Id(~g)));
-	done = abs(T - Tnext) < deltaT;
+	intermediate_image = reform >= T;
+    imshow(intermediate_image(:, :, 1))
+	Tnext = 0.5*(mean(reform(intermediate_image)) + mean(reform(~intermediate_image)));
+	done = abs(T - Tnext) < stop_criterion;
 	T = Tnext;
 	
 	
@@ -450,7 +450,7 @@ while ~done
 	% Increment loop interation counter.
 	counter = counter + 1;
 end
-    I=g;
+    I=intermediate_image;
     
     disp(size(I));
     axes(handles.display)
